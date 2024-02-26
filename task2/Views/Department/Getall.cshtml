@@ -1,0 +1,77 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_ EmployeeLayout";
+    int i = 1;
+}
+
+<h1> Departmentes </h1>
+<a class="btn btn-outline-success" href="/department/Adddept">Add Department</a>
+<style>
+
+    h1 {
+        color: darkgreen;
+        text-align: center;
+        margin-top: 100px
+    }
+
+    .rin_body {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    p {
+        text-align: center;
+    }
+</style>
+<div class="rin_body">
+
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Name</th>
+                <th scope="col">Manager </th>
+                
+                <th scope="col">Start_Date</th>
+                <th scope="col">Details</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@(i++)</th>
+                    <td>@item.Name</td>
+
+                    
+
+                    <td>
+                        @if (item.managr != null)
+                        {
+                            @item.managr.fname;
+                        }
+                        else
+                        {
+                            @Html.Raw("Null")
+                        }
+
+                    </td>
+                    <td>@item.startdate</td>
+                    <td>
+                       
+                        <button onclick="window.location.href='/department/Editform/@item.Id'" class="btn btn-outline-success"> Upate data </button>
+                        <button onclick="window.location.href='/department/delete/@item.Id'" class="btn btn-outline-success"> delete data </button>
+
+
+
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

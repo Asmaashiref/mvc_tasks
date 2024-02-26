@@ -1,0 +1,95 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_ EmployeeLayout";
+    int i = 1;
+}
+@* @model works_for *@
+<h1> Works projectes </h1>
+
+<style>
+
+    h1 {
+        color: darkgreen;
+        text-align: center;
+        margin-top: 100px
+    }
+
+    .rin_body {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    p {
+        text-align: center;
+    }
+    text{
+        color:red
+    }
+</style>
+<div class="rin_body">
+
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Employee</th>
+                <th scope="col">Project </th>
+                <th scope="col">Hours </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@(i++)</th>
+
+                    <td>
+                       @if (item.Employee!= null)
+                        {
+                            @item.Employee.fname
+                            ;
+                        }
+                        else
+                        {
+                            @Html.Raw("Null")
+                        } 
+
+                    </td> 
+                    <td>
+                        @if (item.Project != null)
+                        {
+                            @item.Project.pname
+                            ;
+                        }
+                        else
+                        {
+                            @Html.Raw("Null")
+                        }
+
+                    </td>
+                    <td>
+                       
+                        
+                         <div style="color:@(item.houres>5?"green":"red");">
+                            @item.houres
+                         </div>
+                        
+
+                    </td>
+                
+
+
+                    <td><a asp-action="Edit" asp-controller="work" asp-route-id="@item.essn" class="btn btn-outline-success">Edit</a> </td>
+
+
+                    
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

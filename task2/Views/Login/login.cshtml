@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_ EmployeeLayout";
+}
+<style>
+    form{
+        margin-top:50px;
+    }
+    h1{
+        text-align:center;
+    }
+
+</style>
+<h1> LOGIN </h1>
+<form action="/login/logpage">
+    <div class="mb-3">
+        <label for="Fname" class="form-label">Name</label>
+        <input name="Fname" type="text" class="form-control" id="Fname">
+      
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input name="password" type="password" class="form-control" id="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

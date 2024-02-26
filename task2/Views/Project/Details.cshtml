@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    Layout = "_ EmployeeLayout";
+}
+@model project
+
+<style>
+    h1 {
+        color: darkgreen;
+        text-align: center
+    }
+
+    .emp {
+        border: solid black 2px;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    p {
+        text-align: center;
+        font-size: larger;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    button {
+        margin-bottom: 20px;
+        margin-left: 20px
+    }
+
+    .rin_body {
+        margin-top: 150px;
+        margin-bottom: 100px;
+    }
+
+</style>
+<div class="rin_body">
+
+    @if (Model is null)
+    {
+        <h1>This project is not found</h1>
+    }
+    else
+    {
+        <div>
+            <h1> Project Info </h1>
+            <div class="emp">
+                <p>Frist name:@Model.pname</p>
+                <p>Last name:@Model.plocation</p>
+                <p> Address :@Model.city</p>
+               
+
+                <p> Department : @if(Model.Department!=null){
+                        @Model.Department.Name
+                    }
+                    else
+                    {
+                        @Html.Raw("Null")
+                    }
+                </p>
+                
+
+                <button onclick="window.location.href='Getall?id=@Model.Id'"> Back To List </button>
+            </div>
+
+
+        </div>
+
+    }
+
+</div>

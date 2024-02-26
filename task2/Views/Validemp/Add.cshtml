@@ -1,0 +1,69 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model EmployeeVM
+
+<form asp-action="Add" asp-controller="Validemp" method="post">
+ 
+    <div>
+        <label asp-for="fname" class="form-label"></label>
+        <input asp-for="fname" class="form-control" />
+        <span asp-validation-for="fname" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="lname" class="form-label"></label>
+        <input asp-for="lname" class="form-control" />
+        <span asp-validation-for="lname" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="address" class="form-label"></label>
+        <input asp-for="address" class="form-control" />
+        <span asp-validation-for="address" class="text-danger"></span>
+
+    </div>
+    <div>
+        <label asp-for="salary" class="form-label"></label>
+        <input asp-for="salary" class="form-control" />
+        <span asp-validation-for="salary" class="text-danger"></span>
+
+    </div>
+    <div>
+        <label asp-for="bdate" class="form-label"></label>
+        <input asp-for="bdate" class="form-control" />
+        <span asp-validation-for="bdate" class="text-danger"></span>
+
+    </div>
+    <div>
+        <label asp-for="Sex" class="form-label"></label>
+        <input asp-for="Sex" class="form-control" />
+        <span asp-validation-for="Sex" class="text-danger"></span>
+
+    </div>
+    <div>
+        <label asp-for="password" class="form-label"></label>
+        <input asp-for="password" class="form-control" />
+        <span asp-validation-for="password" class="text-danger"></span>
+
+    </div>
+    <div>
+        <label asp-for="Confirmpassword" class="form-label"></label>
+        <input asp-for="Confirmpassword" class="form-control" />
+        <span asp-validation-for="Confirmpassword" class="text-danger"></span>
+
+    </div>
+    <div>
+        <label asp-for="dno" class="form-label"></label>
+        <select asp-for="dno" asp-items="Model.departments" class="form-control">
+        </select>
+        <span asp-validation-for="dno" class="text-danger"></span>
+
+    </div>
+    <input type="submit" value="Add" />
+</form>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
